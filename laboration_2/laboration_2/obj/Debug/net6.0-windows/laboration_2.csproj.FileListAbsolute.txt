@@ -1,0 +1,17 @@
+C:\Users\kirom\source\repos\laboration_2\laboration_2\bin\Debug\net6.0-windows\laboration_2.exe
+C:\Users\kirom\source\repos\laboration_2\laboration_2\bin\Debug\net6.0-windows\laboration_2.deps.json
+C:\Users\kirom\source\repos\laboration_2\laboration_2\bin\Debug\net6.0-windows\laboration_2.runtimeconfig.json
+C:\Users\kirom\source\repos\laboration_2\laboration_2\bin\Debug\net6.0-windows\laboration_2.dll
+C:\Users\kirom\source\repos\laboration_2\laboration_2\bin\Debug\net6.0-windows\laboration_2.pdb
+C:\Users\kirom\source\repos\laboration_2\laboration_2\obj\Debug\net6.0-windows\laboration_2.csproj.AssemblyReference.cache
+C:\Users\kirom\source\repos\laboration_2\laboration_2\obj\Debug\net6.0-windows\laboration_2.csproj.GenerateResource.cache
+C:\Users\kirom\source\repos\laboration_2\laboration_2\obj\Debug\net6.0-windows\laboration_2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kirom\source\repos\laboration_2\laboration_2\obj\Debug\net6.0-windows\laboration_2.AssemblyInfoInputs.cache
+C:\Users\kirom\source\repos\laboration_2\laboration_2\obj\Debug\net6.0-windows\laboration_2.AssemblyInfo.cs
+C:\Users\kirom\source\repos\laboration_2\laboration_2\obj\Debug\net6.0-windows\laboration_2.csproj.CoreCompileInputs.cache
+C:\Users\kirom\source\repos\laboration_2\laboration_2\obj\Debug\net6.0-windows\laboration_2.dll
+C:\Users\kirom\source\repos\laboration_2\laboration_2\obj\Debug\net6.0-windows\refint\laboration_2.dll
+C:\Users\kirom\source\repos\laboration_2\laboration_2\obj\Debug\net6.0-windows\laboration_2.pdb
+C:\Users\kirom\source\repos\laboration_2\laboration_2\obj\Debug\net6.0-windows\laboration_2.genruntimeconfig.cache
+C:\Users\kirom\source\repos\laboration_2\laboration_2\obj\Debug\net6.0-windows\ref\laboration_2.dll
+C:\Users\kirom\source\repos\laboration_2\laboration_2\obj\Debug\net6.0-windows\laboration_2.Kalkylator.resources

@@ -1,0 +1,17 @@
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\bin\Debug\net6.0-windows\Kalkylator.exe
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\bin\Debug\net6.0-windows\Kalkylator.deps.json
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\bin\Debug\net6.0-windows\Kalkylator.runtimeconfig.json
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\bin\Debug\net6.0-windows\Kalkylator.dll
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\bin\Debug\net6.0-windows\Kalkylator.pdb
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\obj\Debug\net6.0-windows\Kalkylator.csproj.AssemblyReference.cache
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\obj\Debug\net6.0-windows\laboration_2.Kalkylator.resources
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\obj\Debug\net6.0-windows\Kalkylator.csproj.GenerateResource.cache
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\obj\Debug\net6.0-windows\Kalkylator.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\obj\Debug\net6.0-windows\Kalkylator.AssemblyInfoInputs.cache
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\obj\Debug\net6.0-windows\Kalkylator.AssemblyInfo.cs
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\obj\Debug\net6.0-windows\Kalkylator.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\obj\Debug\net6.0-windows\Kalkylator.dll
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\obj\Debug\net6.0-windows\refint\Kalkylator.dll
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\obj\Debug\net6.0-windows\Kalkylator.pdb
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\obj\Debug\net6.0-windows\Kalkylator.genruntimeconfig.cache
+E:\Documents\GitHub\DVGB07\laboration_2\laboration_2\obj\Debug\net6.0-windows\ref\Kalkylator.dll
