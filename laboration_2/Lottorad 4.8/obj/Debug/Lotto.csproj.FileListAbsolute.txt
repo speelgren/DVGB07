@@ -1,0 +1,11 @@
+C:\Users\kirom\source\repos\Lotto\obj\Debug\Lotto.csproj.AssemblyReference.cache
+C:\Users\kirom\source\repos\Lotto\obj\Debug\Lotto.csproj.SuggestedBindingRedirects.cache
+C:\Users\kirom\source\repos\Lotto\obj\Debug\Lotto.Lottorad.resources
+C:\Users\kirom\source\repos\Lotto\obj\Debug\Lotto.Properties.Resources.resources
+C:\Users\kirom\source\repos\Lotto\obj\Debug\Lotto.csproj.GenerateResource.cache
+C:\Users\kirom\source\repos\Lotto\obj\Debug\Lotto.csproj.CoreCompileInputs.cache
+C:\Users\kirom\source\repos\Lotto\bin\Debug\Lotto.exe.config
+C:\Users\kirom\source\repos\Lotto\bin\Debug\Lotto.exe
+C:\Users\kirom\source\repos\Lotto\bin\Debug\Lotto.pdb
+C:\Users\kirom\source\repos\Lotto\obj\Debug\Lotto.exe
+C:\Users\kirom\source\repos\Lotto\obj\Debug\Lotto.pdb

@@ -1,0 +1,11 @@
+C:\Users\kirom\source\repos\Kalkylator\bin\Debug\Kalkylator.exe.config
+C:\Users\kirom\source\repos\Kalkylator\bin\Debug\Kalkylator.exe
+C:\Users\kirom\source\repos\Kalkylator\bin\Debug\Kalkylator.pdb
+C:\Users\kirom\source\repos\Kalkylator\obj\Debug\Kalkylator.csproj.AssemblyReference.cache
+C:\Users\kirom\source\repos\Kalkylator\obj\Debug\Kalkylator.csproj.SuggestedBindingRedirects.cache
+C:\Users\kirom\source\repos\Kalkylator\obj\Debug\Kalkylator.Kalkylator.resources
+C:\Users\kirom\source\repos\Kalkylator\obj\Debug\Kalkylator.Properties.Resources.resources
+C:\Users\kirom\source\repos\Kalkylator\obj\Debug\Kalkylator.csproj.GenerateResource.cache
+C:\Users\kirom\source\repos\Kalkylator\obj\Debug\Kalkylator.csproj.CoreCompileInputs.cache
+C:\Users\kirom\source\repos\Kalkylator\obj\Debug\Kalkylator.exe
+C:\Users\kirom\source\repos\Kalkylator\obj\Debug\Kalkylator.pdb

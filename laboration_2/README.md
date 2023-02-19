@@ -1,0 +1,1 @@
+Klantade till det och gjorde Lottorad och Miniräknare i .NET 6 istället för 4.8
