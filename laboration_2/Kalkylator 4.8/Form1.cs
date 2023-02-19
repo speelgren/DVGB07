@@ -95,5 +95,10 @@ namespace Kalkylator
             input_calculation = "";
             textBox_output.Clear();
         }
+
+        private void Kalkylator_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

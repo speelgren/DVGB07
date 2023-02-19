@@ -282,7 +282,9 @@
             this.Controls.Add(this.button_0);
             this.Controls.Add(this.button_1);
             this.Name = "Kalkylator";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kalkylator";
+            this.Load += new System.EventHandler(this.Kalkylator_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
