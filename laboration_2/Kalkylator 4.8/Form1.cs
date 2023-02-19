@@ -34,9 +34,9 @@ namespace Kalkylator
 
             var input_to_array = input_to_string.ToArray().Where(item => item.Length > 0);
             string[] input_to_join = String.Join(" ", input_to_array).Split(new char[] { ' ' }); // Fix. Split i .NET 4.8 tar bara mot char som parameter. Inte string.
-            int nr;
+            decimal nr;
 
-            if (!Int32.TryParse(input_to_join[0], out nr))
+            if (!decimal.TryParse(input_to_join[0], out nr))
             {
                 textBox_output.Text = "Input valid calculation.";
                 return;
@@ -50,11 +50,11 @@ namespace Kalkylator
                 {
                     /* Sparar operator */
                     string input_operator = input_to_join[i - 1];
-                    int result;
+                    decimal result;
 
                     /* Kolla om input är int. 
                      * Fixar även overflow när resultatet blir större än int. */
-                    if (!Int32.TryParse(input_to_join[i], out result))
+                    if (!Decimal.TryParse(input_to_join[i], out result))
                     {
                         textBox_output.Text = "Input valid calculation.";
                         return;

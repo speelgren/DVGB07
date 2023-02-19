@@ -9,3 +9,14 @@ C:\Users\kirom\source\repos\Kalkylator\obj\Debug\Kalkylator.csproj.GenerateResou
 C:\Users\kirom\source\repos\Kalkylator\obj\Debug\Kalkylator.csproj.CoreCompileInputs.cache
 C:\Users\kirom\source\repos\Kalkylator\obj\Debug\Kalkylator.exe
 C:\Users\kirom\source\repos\Kalkylator\obj\Debug\Kalkylator.pdb
+E:\Documents\GitHub\DVGB07\laboration_2\Kalkylator 4.8\obj\Debug\Kalkylator.csproj.AssemblyReference.cache
+E:\Documents\GitHub\DVGB07\laboration_2\Kalkylator 4.8\obj\Debug\Kalkylator.csproj.SuggestedBindingRedirects.cache
+E:\Documents\GitHub\DVGB07\laboration_2\Kalkylator 4.8\obj\Debug\Kalkylator.Kalkylator.resources
+E:\Documents\GitHub\DVGB07\laboration_2\Kalkylator 4.8\obj\Debug\Kalkylator.Properties.Resources.resources
+E:\Documents\GitHub\DVGB07\laboration_2\Kalkylator 4.8\obj\Debug\Kalkylator.csproj.GenerateResource.cache
+E:\Documents\GitHub\DVGB07\laboration_2\Kalkylator 4.8\obj\Debug\Kalkylator.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\DVGB07\laboration_2\Kalkylator 4.8\obj\Debug\Kalkylator.exe
+E:\Documents\GitHub\DVGB07\laboration_2\Kalkylator 4.8\obj\Debug\Kalkylator.pdb
+E:\Documents\GitHub\DVGB07\laboration_2\Kalkylator 4.8\bin\Debug\Kalkylator.exe.config
+E:\Documents\GitHub\DVGB07\laboration_2\Kalkylator 4.8\bin\Debug\Kalkylator.exe
+E:\Documents\GitHub\DVGB07\laboration_2\Kalkylator 4.8\bin\Debug\Kalkylator.pdb
