@@ -51,6 +51,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox.Location = new System.Drawing.Point(0, 27);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.Size = new System.Drawing.Size(565, 393);
@@ -83,28 +84,28 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.saveToolStripMenuItem.Text = "Save File";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // openFileToolStripMenuItem
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.openFileToolStripMenuItem.Text = "Open File";
             this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
             // 
             // clearFileToolStripMenuItem
             // 
             this.clearFileToolStripMenuItem.Name = "clearFileToolStripMenuItem";
-            this.clearFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearFileToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.clearFileToolStripMenuItem.Text = "Clear File";
             this.clearFileToolStripMenuItem.Click += new System.EventHandler(this.clearFileToolStripMenuItem_Click);
             // 
             // exitFileToolStripMenuItem
             // 
             this.exitFileToolStripMenuItem.Name = "exitFileToolStripMenuItem";
-            this.exitFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitFileToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.exitFileToolStripMenuItem.Text = "Exit File";
             this.exitFileToolStripMenuItem.Click += new System.EventHandler(this.exitFileToolStripMenuItem_Click);
             // 

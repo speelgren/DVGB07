@@ -9,3 +9,14 @@ C:\Users\kirom\source\repos\NoteApp\obj\Debug\NoteApp.csproj.CoreCompileInputs.c
 C:\Users\kirom\source\repos\NoteApp\obj\Debug\NoteApp.exe
 C:\Users\kirom\source\repos\NoteApp\obj\Debug\NoteApp.pdb
 C:\Users\kirom\source\repos\NoteApp\obj\Debug\NoteApp.NoteApp.resources
+E:\Documents\GitHub\DVGB07\laboration_3\NoteApp\bin\Debug\NoteApp.exe.config
+E:\Documents\GitHub\DVGB07\laboration_3\NoteApp\bin\Debug\NoteApp.exe
+E:\Documents\GitHub\DVGB07\laboration_3\NoteApp\bin\Debug\NoteApp.pdb
+E:\Documents\GitHub\DVGB07\laboration_3\NoteApp\obj\Debug\NoteApp.csproj.AssemblyReference.cache
+E:\Documents\GitHub\DVGB07\laboration_3\NoteApp\obj\Debug\NoteApp.csproj.SuggestedBindingRedirects.cache
+E:\Documents\GitHub\DVGB07\laboration_3\NoteApp\obj\Debug\NoteApp.NoteApp.resources
+E:\Documents\GitHub\DVGB07\laboration_3\NoteApp\obj\Debug\NoteApp.Properties.Resources.resources
+E:\Documents\GitHub\DVGB07\laboration_3\NoteApp\obj\Debug\NoteApp.csproj.GenerateResource.cache
+E:\Documents\GitHub\DVGB07\laboration_3\NoteApp\obj\Debug\NoteApp.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\DVGB07\laboration_3\NoteApp\obj\Debug\NoteApp.exe
+E:\Documents\GitHub\DVGB07\laboration_3\NoteApp\obj\Debug\NoteApp.pdb

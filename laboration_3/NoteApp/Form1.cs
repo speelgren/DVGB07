@@ -48,6 +48,7 @@ namespace NoteApp
                     using (StreamWriter streamWriter = new StreamWriter(saveFileDialog.FileName))
                     {
                         streamWriter.Write(richTextBox.Text);
+                        streamWriter.Close();
                     }
 
                     openedFile = saveFileDialog.FileName;
@@ -60,6 +61,7 @@ namespace NoteApp
                 using (StreamWriter streamWriter = new StreamWriter(openedFile))
                 {
                     streamWriter.Write(richTextBox.Text);
+                    streamWriter.Close();
                 }
                 unsavedText = false;
                 UpdateFormTitle();
@@ -84,6 +86,7 @@ namespace NoteApp
                 using (StreamReader streamReader = new StreamReader(openFileDialog.FileName))
                 {
                     richTextBox.Text = streamReader.ReadToEnd();
+                    streamReader.Close();
                     openedFile = openFileDialog.FileName;
                 }
                 this.Text = openFileDialog.SafeFileName;
