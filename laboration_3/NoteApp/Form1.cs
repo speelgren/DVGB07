@@ -134,7 +134,6 @@ namespace NoteApp
 
         private void exitFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             if(unsavedText)
             {
                 DialogResult dialog = MessageBox.Show("Save changes before exit?", "Unsaved changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
