@@ -1,0 +1,11 @@
+C:\Users\kirom\source\repos\NoteApp\bin\Debug\NoteApp.exe.config
+C:\Users\kirom\source\repos\NoteApp\bin\Debug\NoteApp.exe
+C:\Users\kirom\source\repos\NoteApp\bin\Debug\NoteApp.pdb
+C:\Users\kirom\source\repos\NoteApp\obj\Debug\NoteApp.csproj.AssemblyReference.cache
+C:\Users\kirom\source\repos\NoteApp\obj\Debug\NoteApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\kirom\source\repos\NoteApp\obj\Debug\NoteApp.Properties.Resources.resources
+C:\Users\kirom\source\repos\NoteApp\obj\Debug\NoteApp.csproj.GenerateResource.cache
+C:\Users\kirom\source\repos\NoteApp\obj\Debug\NoteApp.csproj.CoreCompileInputs.cache
+C:\Users\kirom\source\repos\NoteApp\obj\Debug\NoteApp.exe
+C:\Users\kirom\source\repos\NoteApp\obj\Debug\NoteApp.pdb
+C:\Users\kirom\source\repos\NoteApp\obj\Debug\NoteApp.NoteApp.resources
