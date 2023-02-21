@@ -14,6 +14,7 @@ namespace Kalkylator
     public partial class Kalkylator : Form
     {
         private string input_calculation = "";
+
         public Kalkylator()
         {
             InitializeComponent();
@@ -48,12 +49,9 @@ namespace Kalkylator
                  * https://www.c-sharpcorner.com/UploadFile/puranindia/regular-expressions-in-C-Sharp/ */
                 if (Regex.Replace(input_to_join[i], "[^0-9]", "").Length > 0)
                 {
-                    /* Sparar operator */
                     string input_operator = input_to_join[i - 1];
                     decimal result;
 
-                    /* Kolla om input är int. 
-                     * Fixar även overflow när resultatet blir större än int. */
                     if (!Decimal.TryParse(input_to_join[i], out result))
                     {
                         textBox_output.Text = "Input valid calculation.";
@@ -85,20 +83,14 @@ namespace Kalkylator
                     }
                 }
             }
-
+            input_calculation = "";
             textBox_output.Text = nr.ToString();
         }
 
         private void button_clear_clicked(object sender, EventArgs e)
         {
-
             input_calculation = "";
             textBox_output.Clear();
-        }
-
-        private void Kalkylator_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

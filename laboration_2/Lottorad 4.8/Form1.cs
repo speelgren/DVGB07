@@ -45,6 +45,11 @@ namespace Lotto
                     textBox_input_7.Text
                 };
 
+                for(int i = 0; i < textBoxInputs.Length; i++)
+                {
+                    if (Int32.Parse(textBoxInputs[i]) > 35) throw new Exception("Input value between 1 and 35");
+                }
+
                 /*
                  * Check för att kolla så att alla inputs är unika.
                  * Kasta exception om det finns dubblett bland input.

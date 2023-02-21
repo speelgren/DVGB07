@@ -9,3 +9,14 @@ C:\Users\kirom\source\repos\Lotto\bin\Debug\Lotto.exe
 C:\Users\kirom\source\repos\Lotto\bin\Debug\Lotto.pdb
 C:\Users\kirom\source\repos\Lotto\obj\Debug\Lotto.exe
 C:\Users\kirom\source\repos\Lotto\obj\Debug\Lotto.pdb
+E:\Documents\GitHub\DVGB07\laboration_2\Lottorad 4.8\bin\Debug\Lotto.exe.config
+E:\Documents\GitHub\DVGB07\laboration_2\Lottorad 4.8\bin\Debug\Lotto.exe
+E:\Documents\GitHub\DVGB07\laboration_2\Lottorad 4.8\bin\Debug\Lotto.pdb
+E:\Documents\GitHub\DVGB07\laboration_2\Lottorad 4.8\obj\Debug\Lotto.csproj.AssemblyReference.cache
+E:\Documents\GitHub\DVGB07\laboration_2\Lottorad 4.8\obj\Debug\Lotto.csproj.SuggestedBindingRedirects.cache
+E:\Documents\GitHub\DVGB07\laboration_2\Lottorad 4.8\obj\Debug\Lotto.Lottorad.resources
+E:\Documents\GitHub\DVGB07\laboration_2\Lottorad 4.8\obj\Debug\Lotto.Properties.Resources.resources
+E:\Documents\GitHub\DVGB07\laboration_2\Lottorad 4.8\obj\Debug\Lotto.csproj.GenerateResource.cache
+E:\Documents\GitHub\DVGB07\laboration_2\Lottorad 4.8\obj\Debug\Lotto.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\DVGB07\laboration_2\Lottorad 4.8\obj\Debug\Lotto.exe
+E:\Documents\GitHub\DVGB07\laboration_2\Lottorad 4.8\obj\Debug\Lotto.pdb
