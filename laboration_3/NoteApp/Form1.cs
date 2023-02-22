@@ -40,10 +40,12 @@ namespace NoteApp
              */
             if(string.IsNullOrEmpty(openedFile))
             {
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Text Files (*.txt) | *.txt";
-                saveFileDialog.DefaultExt = "txt";
-                saveFileDialog.AddExtension = true;
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "Text Files (*.txt) | *.txt",
+                    DefaultExt = "txt",
+                    AddExtension = true
+                })
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -67,6 +69,9 @@ namespace NoteApp
             }
         }
 
+        /*
+         * Lyssnar efter ändringar i richTextBox.
+         */
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
             unsavedText = true;
@@ -76,9 +81,11 @@ namespace NoteApp
 
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Text Files (*.txt) | *.txt";
-            openFileDialog.Title = "Open Text File";
+            using (OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Text Files (*.txt) | *.txt",
+                Title = "Open Text File."
+            })
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -100,7 +107,6 @@ namespace NoteApp
             if (unsavedText && string.IsNullOrEmpty(openedFile))
             {
                 this.Text = "* Untitled.txt";
-                // Uppdaterar filnamnet i titel. Lägger till * före filnamnet. Kanske borde använda det som standard namn.. återkommer, kanske.
             } 
             else
             {
@@ -147,19 +153,18 @@ namespace NoteApp
                     MessageBoxButtons.YesNoCancel, 
                     MessageBoxIcon.Question);
 
-                if (dialog == DialogResult.Yes)
+                switch (dialog)
                 {
-                    saveToolStripMenuItem_Click(sender, e);
-                }
-                else if (dialog == DialogResult.No)
-                {
-                    closeByMenu = true;
-                    Application.Exit();
-                } 
-                else
-                {
-                    closeByMenu = false;
-                    return;
+                    case DialogResult.Yes:
+                        saveToolStripMenuItem_Click(sender, e);
+                        break;
+                    case DialogResult.No:
+                        closeByMenu = true;
+                        Application.Exit();
+                        break;
+                    default:
+                        closeByMenu = false;
+                        return;
                 }
             }
             else
@@ -218,27 +223,21 @@ namespace NoteApp
                     {
                         string fileContent = File.ReadAllText(file);
 
-                        if ((Control.ModifierKeys & Keys.Control) == Keys.Control)
+                        switch (ModifierKeys)
                         {
-                            richTextBox.Text += (fileContent + '\n');
-                        }
-                        else if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
-                        {
-                            /*
-                             * Hämta muspekarens position och placera texten där. 
-                             */
-                            int mousePoint = richTextBox.GetCharIndexFromPosition(richTextBox.PointToClient(new Point(e.X, e.Y)));
-                            richTextBox.Select(mousePoint, 0);
-                            richTextBox.SelectedText = fileContent;
-                        }
-                        else
-                        {
-                            richTextBox.Text += (fileContent + '\n');
+                            case Keys.Control:
+                                richTextBox.Text += (fileContent + '\n');
+                                break;
+                            case Keys.Shift:
+                                int mousePoint = richTextBox.GetCharIndexFromPosition(richTextBox.PointToClient(new Point(e.X, e.Y)));
+                                richTextBox.Select(mousePoint, 0);
+                                richTextBox.SelectedText = fileContent;
+                                break;
+                            default:
+                                richTextBox.Text += (fileContent + '\n');
+                                break;
                         }
                     }
-                    /*
-                     * Om filen som droppats inte är en .txt-fil.
-                     */
                     else
                     {
                         throw new Exception("Only Text Files.");
