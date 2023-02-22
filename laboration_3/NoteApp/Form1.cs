@@ -21,6 +21,8 @@ namespace NoteApp
         public NoteApp()
         {
             InitializeComponent();
+            this.DragDrop += new DragEventHandler(Form_DragDrop);
+            this.DragEnter += new DragEventHandler(Form_DragDrop);
         }
 
         /*
@@ -49,7 +51,6 @@ namespace NoteApp
                     {
                         streamWriter.Write(richTextBox.Text);
                     }
-
                     openedFile = saveFileDialog.FileName;
                     unsavedText = false;
                     UpdateFormTitle();
@@ -98,7 +99,8 @@ namespace NoteApp
         {
             if (unsavedText && string.IsNullOrEmpty(openedFile))
             {
-                this.Text = "* Untitled.txt"; // Uppdaterar filnamnet i titel. Lägger till * före filnamnet. Kanske borde använda det som standard namn.. återkommer, kanske.
+                this.Text = "* Untitled.txt";
+                // Uppdaterar filnamnet i titel. Lägger till * före filnamnet. Kanske borde använda det som standard namn.. återkommer, kanske.
             } 
             else
             {
@@ -136,7 +138,11 @@ namespace NoteApp
         {
             if(unsavedText)
             {
-                DialogResult dialog = MessageBox.Show("Save changes before exit?", "Unsaved changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                DialogResult dialog = MessageBox.Show(
+                    "Save changes before exit?", 
+                    "Unsaved changes",
+                    MessageBoxButtons.YesNoCancel, 
+                    MessageBoxIcon.Question);
 
                 if (dialog == DialogResult.Yes)
                 {
@@ -146,7 +152,8 @@ namespace NoteApp
                 {
                     closeByMenu = true;
                     Application.Exit();
-                } else
+                } 
+                else
                 {
                     closeByMenu = false;
                     return;
@@ -162,12 +169,86 @@ namespace NoteApp
         {
             if(!closeByMenu && unsavedText)
             {
-                DialogResult dialog = MessageBox.Show("Save changes before exit?", "Unsaved changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialog = MessageBox.Show(
+                    "Save changes before exit?", 
+                    "Unsaved changes", 
+                    MessageBoxButtons.YesNo, 
+                    MessageBoxIcon.Question);
 
                 if (dialog == DialogResult.Yes)
                 {
                     saveToolStripMenuItem_Click(sender, e);
                 }
+            }
+        }
+        /*
+         * Version 3
+         */
+        private void Form_DragDrop(object sender, DragEventArgs e)
+        {
+            /*
+             * Check för att kolla om en fil droppats. Om inte return.
+             */
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                return;
+            }
+
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+            try
+            {
+                foreach (string file in files)
+                {
+                    /*
+                     * För att endast ta mot .txt-filer.
+                     */
+                    if (Path.GetExtension(file).Equals(".txt", StringComparison.OrdinalIgnoreCase))
+                    {
+                        string fileContent = File.ReadAllText(file);
+
+                        if ((Control.ModifierKeys & Keys.Control) == Keys.Control)
+                        {
+                            richTextBox.Text += (fileContent + '\n');
+                        }
+                        else if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+                        {
+                            /*
+                             * Hämta muspekarens position och placera texten där. 
+                             */
+                            int mousePoint = richTextBox.GetCharIndexFromPosition(richTextBox.PointToClient(new Point(e.X, e.Y)));
+                            richTextBox.Select(mousePoint, 0);
+                            richTextBox.SelectedText = fileContent;
+                        }
+                        else
+                        {
+                            richTextBox.Text += (fileContent + '\n');
+                        }
+                    }
+                    /*
+                     * Om filen som droppats inte är en .txt-fil.
+                     */
+                    else
+                    {
+                        throw new Exception("Only Text Files.");
+                    }
+                }
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+
+        private void Form_DragEnter(object sender, DragEventArgs e)
+        {
+            /*
+             * Check för att kolla om shift eller ctrl på tangentbordet är nedtryckt.
+             * Testat på tre olika tangentbord.
+             */
+            if (e.Data.GetDataPresent(DataFormats.FileDrop) && (Control.ModifierKeys & (Keys.Control | Keys.Shift)) == (Keys.Control | Keys.Shift))
+            {
+                e.Effect = DragDropEffects.Copy;
             }
         }
     }

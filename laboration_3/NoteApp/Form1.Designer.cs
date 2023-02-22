@@ -154,6 +154,7 @@
             // 
             // NoteApp
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 443);
@@ -167,6 +168,8 @@
             this.Text = "NoteApp";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_Closed);
             this.Load += new System.EventHandler(this.form_onLoad);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form_DragEnter);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip_counter.ResumeLayout(false);
