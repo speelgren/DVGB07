@@ -21,8 +21,8 @@ namespace NoteApp
         public NoteApp()
         {
             InitializeComponent();
-            this.DragDrop += new DragEventHandler(Form_DragDrop);
-            this.DragEnter += new DragEventHandler(Form_DragDrop);
+            this.DragDrop += new DragEventHandler(form_DragDrop);
+            this.DragEnter += new DragEventHandler(form_DragDrop);
         }
 
         /*
@@ -53,7 +53,7 @@ namespace NoteApp
                     }
                     openedFile = saveFileDialog.FileName;
                     unsavedText = false;
-                    UpdateFormTitle();
+                    formTitle_Update();
                 }
             }
             else
@@ -63,15 +63,15 @@ namespace NoteApp
                     streamWriter.Write(richTextBox.Text);
                 }
                 unsavedText = false;
-                UpdateFormTitle();
+                formTitle_Update();
             }
         }
 
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
             unsavedText = true;
-            UpdateFormTitle();
-            UpdateStatusStrip();
+            formTitle_Update();
+            statusStrip_Update();
         }
 
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,7 +95,7 @@ namespace NoteApp
         /*
          * Uppdatering av filnamnet i titeln.
          */
-        private void UpdateFormTitle()
+        private void formTitle_Update()
         {
             if (unsavedText && string.IsNullOrEmpty(openedFile))
             {
@@ -108,7 +108,7 @@ namespace NoteApp
             }
         }
 
-        private void UpdateStatusStrip()
+        private void statusStrip_Update()
         {
             int charCountWithSpaces = richTextBox.Text.Length; // antal tkn inkl. mellanslag
             int charCountWithoutSpaces = richTextBox.Text.Replace(" ", "").Length; // antal tkn exkl. mellanslag
@@ -136,6 +136,9 @@ namespace NoteApp
 
         private void exitFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*
+             * Om det finns osparad text i dokumentet.
+             */
             if(unsavedText)
             {
                 DialogResult dialog = MessageBox.Show(
@@ -159,6 +162,13 @@ namespace NoteApp
                     return;
                 }
             }
+            else
+            {
+                /*
+                 * Om det inte finns någon text i dokumentet så avslutas programmet.
+                 */
+                Application.Exit();
+            }
         }
         
         /*
@@ -181,10 +191,11 @@ namespace NoteApp
                 }
             }
         }
+
         /*
          * Version 3
          */
-        private void Form_DragDrop(object sender, DragEventArgs e)
+        private void form_DragDrop(object sender, DragEventArgs e)
         {
             /*
              * Check för att kolla om en fil droppats. Om inte return.
@@ -240,7 +251,7 @@ namespace NoteApp
             }
         }
 
-        private void Form_DragEnter(object sender, DragEventArgs e)
+        private void form_DragEnter(object sender, DragEventArgs e)
         {
             /*
              * Check för att kolla om shift eller ctrl på tangentbordet är nedtryckt.

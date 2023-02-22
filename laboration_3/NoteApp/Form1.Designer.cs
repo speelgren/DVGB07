@@ -168,8 +168,8 @@
             this.Text = "NoteApp";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_Closed);
             this.Load += new System.EventHandler(this.form_onLoad);
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form_DragDrop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form_DragEnter);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.form_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.form_DragEnter);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip_counter.ResumeLayout(false);
