@@ -1,2 +1,2 @@
 ### NoteApp
-![noteapp](https://user-images.githubusercontent.com/97473666/221179780-28cf3287-892d-4e24-8481-b279ab924129.png)
+![NoteApp](https://user-images.githubusercontent.com/97473666/221182123-70d73747-5610-4db3-b408-c1cf6abb6ce8.png)
