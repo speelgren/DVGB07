@@ -240,7 +240,7 @@ namespace NoteApp
                     }
                     else
                     {
-                        throw new Exception("Only Text Files.");
+                        throw new Exception ("Only Text Files.");
                     }
                 }
             }
