@@ -226,7 +226,7 @@ namespace NoteApp
                         switch (ModifierKeys)
                         {
                             case Keys.Control:
-                                richTextBox.Text += (fileContent + '\n');
+                                richTextBox.Text += (fileContent + Environment.NewLine);
                                 break;
                             case Keys.Shift:
                                 int mousePoint = richTextBox.GetCharIndexFromPosition(richTextBox.PointToClient(new Point(e.X, e.Y)));
@@ -234,7 +234,7 @@ namespace NoteApp
                                 richTextBox.SelectedText = fileContent;
                                 break;
                             default:
-                                richTextBox.Text += (fileContent + '\n');
+                                richTextBox.Text += (fileContent + Environment.NewLine);
                                 break;
                         }
                     }
