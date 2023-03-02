@@ -45,6 +45,9 @@ namespace Lotto
                     textBox_input_7.Text
                 };
 
+                /*
+                 * Input ska vara med ett värde mellan 1 - 35.
+                 */
                 for(int i = 0; i < textBoxInputs.Length; i++)
                 {
                     if (Int32.Parse(textBoxInputs[i]) > 35) throw new Exception("Input value between 1 and 35");
@@ -66,7 +69,7 @@ namespace Lotto
                 }
 
                 /*
-                 * correlate user_input till ett textBox_input.
+                 * Koppla user_input till ett textBox_input.
                  */
                 for (int i = 0; i < user_input.Length; i++)
                 {
@@ -75,7 +78,6 @@ namespace Lotto
 
                 /*
                  * Algoritm för att slumpa tal. 7 slumpade tal för varje antal (counts) användaren valt.
-                 * Kollar sedan efter dubbletter bland de slumpade talen och byter ut dem mot ett nytt slumptal.
                  */
                 for (int l = 0; l < counts; l++)
                 {
@@ -86,12 +88,21 @@ namespace Lotto
                         lotto_row[m] = r.Next(1, 36);
                     }
 
+                    /*
+                     * Kollar array efter dubbletter. Byter ut dubblett mot ett nytt slumptal.
+                     */
                     for (int n = 0; n < 7; n++)
                     {
                         int temp = lotto_row[n];
-                        int swapIndex = r.Next(n, 7);
-                        lotto_row[n] = lotto_row[swapIndex];
-                        lotto_row[swapIndex] = temp;
+
+                        for (int o = n + 1; o < 7; o++) 
+                        {
+                            if (lotto_row[o] == temp)
+                            {
+                                temp = r.Next(1, 36);
+                            }
+                        }
+                        lotto_row[n] = temp;
                     }
 
                     /*
@@ -101,16 +112,10 @@ namespace Lotto
                     {
                         for (int j = 0; j < 7; j++)
                         {
-                            int lotto_num = lotto_row[j];
-                            if (user_input[i] == lotto_num)
+                            if (user_input[i] == lotto_row[j])
                             {
                                 hit++;
                             }
-                            while (lotto_num == lotto_row[j])
-                            {
-                                lotto_num = r.Next(1, 36);
-                            }
-                            lotto_row[j] = lotto_num;
                         }
                     }
 
