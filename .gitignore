@@ -6,3 +6,6 @@ laboration_2/Miniräknare/.vs/
 laboration_2/Lottorad/.vs/
 laboration_3/NoteApp/.vs/NoteApp/v17/.suo
 laboration_3/NoteApp/.vs/
+*.exe
+*.pdb
+*.cache

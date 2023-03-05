@@ -17,7 +17,7 @@ namespace NoteApp
     {
         // Flaggar för att se om text inom richTextBox har ändrats.
         private bool unsavedText = false;
-        // Flaggar för att stänga programmet och triggar inte dialogrutan från form_Closed().
+        // Flaggar för att stänga programmet och inte trigga dialogrutan från form_Closed().
         private bool closeByMenu = false;
         // Spara filnamnet, för att komma åt det senare i programmet.
         private string fileName = string.Empty;
@@ -25,16 +25,68 @@ namespace NoteApp
         public NoteApp()
         {
             InitializeComponent();
-            this.DragDrop += new DragEventHandler(form_DragDrop);
-            this.DragEnter += new DragEventHandler(form_DragDrop);
+            this.DragDrop += new DragEventHandler(formDrag_Drop);
+            this.DragEnter += new DragEventHandler(formDrag_Drop);
         }
 
         // När programmet startas tilldelas filnamnet i titelraden "Untitled.txt".
-        private void form_onLoad(object sender, EventArgs e)
+        private void form_Load(object sender, EventArgs e)
         {
             this.Text = "Untitled.txt";
         }
 
+        // Uppdatering av filnamnet i titeln.
+        private void formTitle_Update(string fileName)
+        {
+            // Om: Ingen osparad text eller öppnad fil
+            if (!unsavedText && string.IsNullOrEmpty(fileName))
+            {
+                this.Text = "Untitled.txt";
+            }
+            // Om: Osparad text och ingen öppnad fil
+            if (unsavedText && string.IsNullOrEmpty(fileName))
+            {
+                this.Text = "* Untitled.txt";
+            }
+            // Om: Ingen osparad text i en öppnad fil
+            if (!unsavedText && !string.IsNullOrEmpty(fileName))
+            {
+                this.Text = Path.GetFileName(fileName);
+            }
+            // Om: Osparad text i öppnad fil
+            if (unsavedText && !string.IsNullOrEmpty(fileName))
+            {
+                this.Text = "* " + Path.GetFileName(fileName);
+            }
+        }
+
+        // "Lyssnar" efter ändringar i richTextBox.
+        private void richTextBox_TextChanged(object sender, EventArgs e)
+        {
+            unsavedText = true;
+            formTitle_Update(fileName);
+            statusStrip_Update();
+        }
+        
+        // Uppdatering av informationen i statusStrip.
+        private void statusStrip_Update()
+        {
+            // Antal tkn inkl. mellanslag.
+            var charCountWithSpaces = richTextBox.Text.Length;
+            // Antal tkn exkl. mellanslag.
+            var charCountWithoutSpaces = richTextBox.Text.Replace(" ", "").Length;
+            // Antal ord. tinyurl.com/43jpfktk | Använder @"\w+" istället för @"[\W]+" för att räkna antal ord.
+            var wordCount = Regex.Matches(richTextBox.Text, @"\w+");
+            // Antal rader.
+            var rowCount = richTextBox.Lines.Length; 
+
+            toolStripStatusLabel_withSpaces.Text = "w spaces: " + charCountWithSpaces;
+            toolStripStatusLabel_withoutSpaces.Text = "w/o spaces: " + charCountWithoutSpaces;
+            toolStripStatusLabel_wordCount.Text = "word count: " + wordCount.Count.ToString();
+            toolStripStatusLabel_rowCounter.Text = "row count: " + rowCount;
+        }
+
+        // Spara fil.
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Om ingen fil finns (fileName är tom). Spara en ny.
@@ -47,6 +99,8 @@ namespace NoteApp
                     AddExtension = true
                 })
                 {
+                    // Placeholder filnamn.
+                    saveFileDialog.FileName = "Untitled"; 
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         using (StreamWriter streamWriter = new StreamWriter(saveFileDialog.FileName))
@@ -71,14 +125,7 @@ namespace NoteApp
             }
         }
 
-        //Lyssnar efter ändringar i richTextBox.
-        private void richTextBox_TextChanged(object sender, EventArgs e)
-        {
-            unsavedText = true;
-            formTitle_Update(fileName);
-            statusStrip_Update();
-        }
-
+        // Öppna fil.
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog
@@ -99,20 +146,6 @@ namespace NoteApp
             }
         }
 
-        // Uppdatering av informationen i statusStrip.
-        private void statusStrip_Update()
-        {
-            int charCountWithSpaces = richTextBox.Text.Length; // antal tkn inkl. mellanslag.
-            int charCountWithoutSpaces = richTextBox.Text.Replace(" ", "").Length; // antal tkn exkl. mellanslag.
-            MatchCollection wordCount = Regex.Matches(richTextBox.Text, @"[\W]+"); // antal ord. tinyurl.com/43jpfktk
-            int rowCount = richTextBox.Lines.Length; // antal rader.
-
-            toolStripStatusLabel_withSpaces.Text = "w spaces: " + charCountWithSpaces;
-            toolStripStatusLabel_withoutSpaces.Text = "w/o spaces: " + charCountWithoutSpaces;
-            toolStripStatusLabel_wordCount.Text = "word count: " + wordCount.Count.ToString();
-            toolStripStatusLabel_rowCounter.Text = "row count: " + rowCount;
-        }
-
         private void clearFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             /*
@@ -127,7 +160,7 @@ namespace NoteApp
 
         private void exitFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Om det finns osparad text i dokumentet.
+            // Om det finns osparad text i dokumentet när programmet ska stängas via menyvalet "Exit File".
             if (unsavedText)
             {
                 DialogResult dialog = MessageBox.Show("Save changes before exit?", "Unsaved changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
@@ -148,37 +181,40 @@ namespace NoteApp
             }
             else
             {
-                // Om det inte finns någon text i dokumentet så avslutas programmet.
                 Application.Exit();
             }
         }
-        
-        /*
-         * Använder eventet Closed för Form istället för Closing.
-         * Fick inte Closing att fungera som jag ville (dubbla dialogrutor).
-         */
-        private void form_Closed(object sender, FormClosedEventArgs e)
-        {
-            if(!closeByMenu && unsavedText)
-            {
-                DialogResult dialog = MessageBox.Show("Save changes before exit?", "Unsaved changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (dialog == DialogResult.Yes)
+        private void form_Closing(object sender, FormClosingEventArgs e)
+        {
+            // Om det finns osparad text i dokumentet när programmet ska stängas via X-knappen.
+            if (!closeByMenu && unsavedText)
+            {
+                DialogResult dialog = MessageBox.Show("Save changes before exit?", "Unsaved changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                switch (dialog)
                 {
-                    saveToolStripMenuItem_Click(sender, e);
+                    case DialogResult.Yes:
+                        saveToolStripMenuItem_Click(sender, e);
+                        break;
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        return;
                 }
             }
         }
 
-        // Version 3
-        private void form_DragDrop(object sender, DragEventArgs e)
+        private void formDrag_Enter(object sender, DragEventArgs e)
         {
-            // Check för att kolla om en fil droppats. Om inte return.
-            if (!e.Data.GetDataPresent(DataFormats.FileDrop))
+            // Check för att kolla om shift eller ctrl på tangentbordet är nedtryckt.
+            if (e.Data.GetDataPresent(DataFormats.FileDrop) && (Control.ModifierKeys & (Keys.Control | Keys.Shift)) == (Keys.Control | Keys.Shift))
             {
-                return;
+                e.Effect = DragDropEffects.Copy;
             }
+        }
 
+        private void formDrag_Drop(object sender, DragEventArgs e)
+        {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
             try
@@ -190,6 +226,7 @@ namespace NoteApp
                     {
                         string fileContent = File.ReadAllText(file);
                         fileName = file;
+                        var mousePoint = richTextBox.GetCharIndexFromPosition(richTextBox.PointToClient(new Point(e.X, e.Y)));
 
                         switch (ModifierKeys)
                         {
@@ -197,13 +234,12 @@ namespace NoteApp
                                 richTextBox.Text += (fileContent + Environment.NewLine);
                                 break;
                             case Keys.Shift:
-                                int mousePoint = richTextBox.GetCharIndexFromPosition(richTextBox.PointToClient(new Point(e.X, e.Y)));
                                 richTextBox.Select(mousePoint, 0);
                                 richTextBox.SelectedText = fileContent;
                                 break;
                             default:
                                 richTextBox.Clear();
-                                richTextBox.Text += (fileContent + Environment.NewLine);
+                                richTextBox.Text += (fileContent);
                                 unsavedText = false;
                                 formTitle_Update(Path.GetFileName(file));
                                 break;
@@ -211,43 +247,13 @@ namespace NoteApp
                     }
                     else
                     {
-                        throw new Exception ("Only Text Files.");
+                        throw new Exception("Can only import text files.");
                     }
                 }
             }
             catch (Exception er)
             {
                 MessageBox.Show(er.Message);
-            }
-        }
-
-        private void form_DragEnter(object sender, DragEventArgs e)
-        {
-            // Check för att kolla om shift eller ctrl på tangentbordet är nedtryckt.
-            if (e.Data.GetDataPresent(DataFormats.FileDrop) && (Control.ModifierKeys & (Keys.Control | Keys.Shift)) == (Keys.Control | Keys.Shift))
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
-        }
-
-        // Uppdatering av filnamnet i titeln.
-        private void formTitle_Update(string fileName)
-        {
-            if (!unsavedText && string.IsNullOrEmpty(fileName))
-            {
-                this.Text = "Untitled.txt";
-            }
-            if (unsavedText && string.IsNullOrEmpty(fileName))
-            {
-                this.Text = "* Untitled.txt";
-            }
-            if (!unsavedText && !string.IsNullOrEmpty(fileName))
-            {
-                this.Text = Path.GetFileName(fileName);
-            }
-            if (unsavedText && !string.IsNullOrEmpty(fileName))
-            {
-                this.Text = "* " + Path.GetFileName(fileName);
             }
         }
     }

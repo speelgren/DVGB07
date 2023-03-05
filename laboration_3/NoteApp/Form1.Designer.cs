@@ -51,7 +51,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox.Location = new System.Drawing.Point(0, 27);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.Size = new System.Drawing.Size(565, 393);
@@ -166,10 +166,11 @@
             this.Name = "NoteApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NoteApp";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_Closed);
-            this.Load += new System.EventHandler(this.form_onLoad);
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.form_DragDrop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.form_DragEnter);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_Closing);
+            //this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_Closed);
+            this.Load += new System.EventHandler(this.form_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.formDrag_Drop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.formDrag_Enter);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip_counter.ResumeLayout(false);
