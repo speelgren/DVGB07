@@ -76,13 +76,13 @@ namespace NoteApp
             // Antal tkn exkl. mellanslag.
             var charCountWithoutSpaces = richTextBox.Text.Replace(" ", "").Length;
             // Antal ord. tinyurl.com/43jpfktk | Använder @"\w+" istället för @"[\W]+" för att räkna antal ord.
-            var wordCount = Regex.Matches(richTextBox.Text, @"\w+");
+            var wordCount = Regex.Matches(richTextBox.Text, @"\w+").Count.ToString();
             // Antal rader.
             var rowCount = richTextBox.Lines.Length; 
 
             toolStripStatusLabel_withSpaces.Text = "w spaces: " + charCountWithSpaces;
             toolStripStatusLabel_withoutSpaces.Text = "w/o spaces: " + charCountWithoutSpaces;
-            toolStripStatusLabel_wordCount.Text = "word count: " + wordCount.Count.ToString();
+            toolStripStatusLabel_wordCount.Text = "word count: " + wordCount;
             toolStripStatusLabel_rowCounter.Text = "row count: " + rowCount;
         }
 
