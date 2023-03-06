@@ -96,11 +96,10 @@ namespace NoteApp
                 {
                     Filter = "Text Files (*.txt) | *.txt",
                     DefaultExt = "txt",
+                    FileName = "Untitled",
                     AddExtension = true
                 })
                 {
-                    // Placeholder filnamn.
-                    saveFileDialog.FileName = "Untitled"; 
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         using (StreamWriter streamWriter = new StreamWriter(saveFileDialog.FileName))
