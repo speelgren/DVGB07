@@ -72,7 +72,7 @@ namespace NoteApp
         private void statusStrip_Update()
         {
             // Antal tkn inkl. mellanslag.
-            var charCountWithSpaces = richTextBox.Text.Length;
+            var charCountWithSpaces = richTextBox.Text.Replace("\r", "").Replace("\n", "").Length;
             // Antal tkn exkl. mellanslag.
             var charCountWithoutSpaces = richTextBox.Text.Replace(" ", "").Length;
             // Antal ord. tinyurl.com/43jpfktk | Använder @"\w+" istället för @"[\W]+" för att räkna antal ord.
