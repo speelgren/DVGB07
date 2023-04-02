@@ -47,6 +47,7 @@
             // 
             // richTextBox
             // 
+            this.richTextBox.AllowDrop = true;
             this.richTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -169,8 +170,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_Closing);
             //this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_Closed);
             this.Load += new System.EventHandler(this.form_Load);
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.formDrag_Drop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.formDrag_Enter);
+            //this.DragDrop += new System.Windows.Forms.DragEventHandler(this.formDrag_Drop);
+            //this.DragEnter += new System.Windows.Forms.DragEventHandler(this.formDrag_Enter);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip_counter.ResumeLayout(false);
